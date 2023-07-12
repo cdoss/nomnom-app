@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS food_user;
+CREATE TABLE food_user (
+	id BIGSERIAL PRIMARY KEY,
+	name VARCHAR(32) NOT NULL,
+	email VARCHAR(32)
+);
