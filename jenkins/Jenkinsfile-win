@@ -1,0 +1,23 @@
+pipeline {
+
+    agent any
+    
+    tools {jdk 'jdk20'}
+    
+    stages {
+        
+        stage('Git') {
+            steps {
+                git branch: 'main', credentialsId: '3307425e-266e-45fc-992b-5718d03bee4c', url: 'git@github.com:cdoss/nomnom-app.git'
+            }
+        }
+     
+        stage('Build') {
+            steps {
+                
+                // install dependencies
+                bat 'mvn clean package'
+            }
+        }  
+    }
+}
