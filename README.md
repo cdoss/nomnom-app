@@ -1,5 +1,11 @@
 # nomnom-app
 
+## Installation Dependencies
+
+The function uuid_generate_v4() may fail because an extension is available but not installed
+
+> CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 ## To-Do List
 
 - backend
