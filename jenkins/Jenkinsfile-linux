@@ -1,0 +1,38 @@
+pipeline {
+
+    agent any
+    
+    tools {
+        nodejs 'node21'
+        jdk 'jdk21'
+    }
+    
+    stages {
+        
+        stage('Git') {
+            steps {
+                git branch: 'main', credentialsId: '7d16ef96-a291-4740-baa0-13e26beae49e', url: 'git@github.com:cdoss/nomnom-app.git'
+            }
+        }
+     
+        stage('Build') {
+            steps {
+                sh 'node --version'
+                sh 'npm --version'
+                
+                // install dependencies
+                //sh 'npm install'
+
+                //sh 'npm run build'
+            }
+        }  
+    
+        /*
+        stage('Test') {
+            steps {
+                bat 'node test'
+            }
+        }
+        */
+    }
+}
